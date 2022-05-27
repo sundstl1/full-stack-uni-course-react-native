@@ -59,6 +59,9 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const RepositoryList = () => {
   return (
     <FlatList
+      scrollEnabled={true}
+      initialScrollIndex={2}
+      initialNumToRender={20}
       data={repositories}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={RepositoryItem}

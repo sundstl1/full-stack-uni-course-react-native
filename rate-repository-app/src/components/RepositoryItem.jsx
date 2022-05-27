@@ -1,4 +1,9 @@
-import { View, StyleSheet, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
 import theme from "../theme";
 import Text from "./Text";
 import NumberField from "./NumberField";
@@ -10,7 +15,6 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignContent: "stretch",
-    flex: 1,
   },
   flexContainer: {
     display: "flex",
@@ -31,6 +35,7 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item }) => {
+  console.log(item);
   const UserView = () => {
     return (
       <View
@@ -75,9 +80,11 @@ const RepositoryItem = ({ item }) => {
 
   console.log(item.ownerAvatarUrl);
   return (
-    <View style={styles.flexContainer}>
-      <UserView />
-    </View>
+    <TouchableWithoutFeedback onPress={() => {}}>
+      <View style={styles.container}>
+        <UserView />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
