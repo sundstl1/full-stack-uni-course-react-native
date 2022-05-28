@@ -28,6 +28,33 @@ const theme = {
     flexGrow: 1,
     backgroundColor: "blue",
   },
+  forms: {
+    formField: {
+      fontSize: 25,
+      width: "100%",
+      height: "10%",
+      flexGrow: 1,
+      flexShrink: 0,
+      borderWidth: 1,
+      padding: 10,
+      borderRadius: 5,
+      borderColor: "#586069",
+      color: "#586069",
+    },
+    formButton: {
+      fontSize: 25,
+      width: "100%",
+      height: "12%",
+      flexGrow: 1,
+      flexShrink: 0,
+      borderWidth: 0,
+      padding: 10,
+      borderRadius: 5,
+      borderColor: "transparent",
+      color: "white",
+      textAlign: "center",
+    },
+  },
 };
 
 export default theme;

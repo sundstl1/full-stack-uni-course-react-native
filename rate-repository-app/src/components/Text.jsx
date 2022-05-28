@@ -30,11 +30,13 @@ const styles = StyleSheet.create({
 });
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+  console.log(fontWeight);
   const textStyle = [
     styles.text,
     color === "textSecondary" && styles.colorTextSecondary,
     color === "primary" && styles.colorPrimary,
     color === "appBarText" && styles.colorAppBarText,
+    color === "white" && "white",
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontSize === "kpi" && styles.fontSizeKPI,
     fontWeight === "bold" && styles.fontWeightBold,
