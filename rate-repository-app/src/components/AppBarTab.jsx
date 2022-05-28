@@ -1,6 +1,7 @@
 import theme from "../theme";
 import { View, StyleSheet, Pressable } from "react-native";
 import Text from "./Text";
+import { Link } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,17 +15,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ label }) => {
+const AppBarTab = ({ label, to }) => {
   return (
     <View style={styles.container}>
       <Pressable
         onPress={() => {
-          console.log("pressed");
+          console.log(`Pressed ${label}`);
         }}
       >
-        <Text fontSize={"subheading"} fontWeight="bold" color="appBarText">
-          {label}
-        </Text>
+        <Link to={to}>
+          <Text fontSize={"subheading"} fontWeight="bold" color="appBarText">
+            {label}
+          </Text>
+        </Link>
       </Pressable>
     </View>
   );

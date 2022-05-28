@@ -2,6 +2,8 @@ import { StyleSheet, View } from "react-native";
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
 import theme from "../theme";
+import { Route } from "react-router-native";
+import SignIn from "./SignIn";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +21,8 @@ const Main = () => {
   return (
     <View style={styles.flexContainer}>
       <AppBar />
-      <RepositoryList />
+      <Route path="/" component={RepositoryList} exact />
+      <Route path="/signin" component={SignIn} exact />
     </View>
   );
 };
