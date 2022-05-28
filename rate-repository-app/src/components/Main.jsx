@@ -19,9 +19,7 @@ const Main = () => {
   return (
     <View style={styles.flexContainer}>
       <AppBar />
-      <View style={styles.container}>
-        <RepositoryList />
-      </View>
+      <RepositoryList />
     </View>
   );
 };

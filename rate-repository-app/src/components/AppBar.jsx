@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
-  console.log("appbar");
   return (
     <View style={styles.container}>
       <AppBarTab label="Repositories" />

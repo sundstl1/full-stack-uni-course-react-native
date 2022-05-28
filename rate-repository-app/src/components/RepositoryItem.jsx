@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item }) => {
-  console.log(item);
   const UserView = () => {
     return (
       <View
@@ -78,13 +77,10 @@ const RepositoryItem = ({ item }) => {
     );
   };
 
-  console.log(item.ownerAvatarUrl);
   return (
-    <TouchableWithoutFeedback onPress={() => {}}>
-      <View style={styles.container}>
-        <UserView />
-      </View>
-    </TouchableWithoutFeedback>
+    <View style={styles.container}>
+      <UserView />
+    </View>
   );
 };
 
