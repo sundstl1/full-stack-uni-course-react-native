@@ -15,20 +15,17 @@ const styles = StyleSheet.create({
   },
   outsideContainer: {
     padding: 10,
-    //flex: 1,
-    maxHeight: "12%",
-    minHeight: "12%",
-    flexGrow: 1,
+    height: 100,
+    flexGrow: 0,
     flexShrink: 0,
   },
   buttonContainer: {
     padding: 10,
     justifyContent: "center",
     alignContent: "center",
-    flexGrow: 1,
+    flexGrow: 0,
     flexShrink: 0,
-    maxHeight: "12%",
-    minHeight: "12%",
+    height: 100,
     color: "white",
   },
 });
@@ -37,12 +34,17 @@ const SignInForm = ({ onSubmit }) => {
   return (
     <View style={styles.flexContainer}>
       <View style={styles.outsideContainer}>
-        <FormikTextInput name="username" placeholder="Username" />
+        <FormikTextInput
+          name="username"
+          placeholder="Username"
+          style={theme.container}
+        />
       </View>
       <View style={styles.outsideContainer}>
         <FormikTextInput
           name="password"
           placeholder="Password"
+          style={theme.container}
           secureTextEntry
         />
       </View>

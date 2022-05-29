@@ -7,6 +7,7 @@ const theme = {
     appBarText: "#ffffff",
     background: "#e1e4e8",
     listObject: "white",
+    error: "#d73a4a",
   },
   fontSizes: {
     body: 14,
@@ -32,8 +33,8 @@ const theme = {
     formField: {
       fontSize: 25,
       width: "100%",
-      height: "12%",
-      flexGrow: 1,
+      height: 70,
+      flexGrow: 0,
       flexShrink: 0,
       borderWidth: 1,
       padding: 10,
@@ -44,11 +45,10 @@ const theme = {
     formButton: {
       fontSize: 25,
       width: "100%",
-      height: "12%",
-      flexGrow: 1,
+      height: 70,
+      flexGrow: 0,
       flexShrink: 0,
       borderWidth: 0,
-      padding: 10,
       borderRadius: 5,
       borderColor: "transparent",
     },

@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
 });
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
-  console.log(fontWeight);
   const textStyle = [
     styles.text,
     color === "textSecondary" && styles.colorTextSecondary,
