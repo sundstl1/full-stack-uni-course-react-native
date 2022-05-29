@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import FormikTextInput from "./FormikTextInput";
 import theme from "../theme";
-import PressableButton from "./pressableButton";
+import PressableButton from "./PressableButton";
 
 const styles = StyleSheet.create({
   container: theme.forms.formField,
@@ -9,19 +9,24 @@ const styles = StyleSheet.create({
   flexContainer: {
     display: "flex",
     backgroundColor: theme.colors.background,
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 0,
+    minHeight: "100%",
   },
   outsideContainer: {
     padding: 10,
-    flex: 1,
-    maxHeight: "10%",
-    minHeight: "8%",
+    //flex: 1,
+    maxHeight: "12%",
+    minHeight: "12%",
+    flexGrow: 1,
+    flexShrink: 0,
   },
   buttonContainer: {
     padding: 10,
     justifyContent: "center",
     alignContent: "center",
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 0,
     maxHeight: "10%",
     minHeight: "8%",
   },

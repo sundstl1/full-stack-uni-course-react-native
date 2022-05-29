@@ -32,7 +32,7 @@ const theme = {
     formField: {
       fontSize: 25,
       width: "100%",
-      height: "10%",
+      height: "12%",
       flexGrow: 1,
       flexShrink: 0,
       borderWidth: 1,
