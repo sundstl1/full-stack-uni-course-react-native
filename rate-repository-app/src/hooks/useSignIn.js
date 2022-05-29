@@ -10,7 +10,6 @@ const useSignIn = () => {
       password,
     };
     const mutationResult = await mutate({ variables: { credentials } });
-    console.log(result);
     return mutationResult;
   };
 
