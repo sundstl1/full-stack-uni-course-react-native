@@ -1,9 +1,15 @@
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: theme.forms.formButton,
+  textContainer: {
+    justifyContent: "center",
+    color: "white",
+    fontWeight: theme.fontWeights.bold,
+    fontSize: theme.fontSizes.KPI,
+  },
 });
 
 const PressableButton = ({ label, onSubmit, style }) => {
@@ -12,15 +18,16 @@ const PressableButton = ({ label, onSubmit, style }) => {
       onPress={onSubmit}
       style={{
         ...style,
-        padding: 0,
         backgroundColor: theme.colors.primary,
         justifyContent: "center",
         alignItems: "center",
-        fontWeight: theme.fontWeights.bold,
-        flex: 1,
       }}
     >
-      <Text fontWeight="bold">{label}</Text>
+      <View style={styles.textContainer}>
+        <Text fontWeight="bold" color="white" style={styles.textContainer}>
+          {label}
+        </Text>
+      </View>
     </Pressable>
   );
 };

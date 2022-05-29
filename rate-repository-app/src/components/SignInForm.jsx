@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
     alignContent: "center",
     flexGrow: 1,
     flexShrink: 0,
-    maxHeight: "10%",
-    minHeight: "8%",
+    maxHeight: "12%",
+    minHeight: "12%",
+    color: "white",
   },
 });
 

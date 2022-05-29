@@ -51,8 +51,6 @@ const theme = {
       padding: 10,
       borderRadius: 5,
       borderColor: "transparent",
-      color: "white",
-      textAlign: "center",
     },
   },
 };
