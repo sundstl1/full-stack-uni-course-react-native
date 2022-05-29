@@ -15,19 +15,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ label, to }) => {
+const AppBarTab = ({ label, onPress }) => {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={() => {
-          console.log(`Pressed ${label}`);
-        }}
+        onPress={
+          onPress
+            ? onPress
+            : () => {
+                console.log(`Pressed ${label}`);
+              }
+        }
       >
-        <Link to={to}>
-          <Text fontSize={"subheading"} fontWeight="bold" color="appBarText">
-            {label}
-          </Text>
-        </Link>
+        <Text fontSize={"subheading"} fontWeight="bold" color="appBarText">
+          {label}
+        </Text>
       </Pressable>
     </View>
   );
