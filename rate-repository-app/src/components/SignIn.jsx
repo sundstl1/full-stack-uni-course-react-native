@@ -14,14 +14,14 @@ const validationSchema = yup.object().shape({
 });
 
 const SignIn = () => {
-  const [signIn, result] = useSignIn();
+  const [signIn] = useSignIn();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
     try {
-      await signIn({ username, password });
-      if (result && result.data) {
-        console.log(result.data);
+      const { data } = await signIn({ username, password });
+      if (data) {
+        console.log(data);
       }
     } catch (e) {
       console.log(e);

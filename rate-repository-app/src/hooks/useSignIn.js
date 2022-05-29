@@ -9,9 +9,9 @@ const useSignIn = () => {
       username,
       password,
     };
-    await mutate({ variables: { credentials } });
+    const mutationResult = await mutate({ variables: { credentials } });
     console.log(result);
-    return result;
+    return mutationResult;
   };
 
   return [signIn, result];
