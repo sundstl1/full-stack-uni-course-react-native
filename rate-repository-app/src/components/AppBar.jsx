@@ -22,7 +22,7 @@ const AppBar = () => {
   const history = useHistory();
   const apolloClient = useApolloClient();
   const authStorage = useAuthStorage();
-  const { data, error, loading, refetch } = useQuery(GET_ME, []);
+  const { data, error, loading } = useQuery(GET_ME, []);
 
   const loggedIn = !loading && data.me;
 
