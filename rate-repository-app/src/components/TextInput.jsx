@@ -1,7 +1,6 @@
 import { TextInput as NativeTextInput, StyleSheet } from "react-native";
 
 const TextInput = ({ style, error, ...props }) => {
-  console.log(error);
   const styles = StyleSheet.create({
     error: {
       ...style,
