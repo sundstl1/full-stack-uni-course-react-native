@@ -29,7 +29,10 @@ export const RepositoryListContainer = ({ repositories, history }) => {
 const RepositoryList = () => {
   const history = useHistory();
 
-  const { repositories } = useRepositories();
+  const { repositories } = useRepositories({
+    orderBy: "CREATED_AT",
+    orderDirection: "ASC",
+  });
 
   return (
     <RepositoryListContainer repositories={repositories} history={history} />
