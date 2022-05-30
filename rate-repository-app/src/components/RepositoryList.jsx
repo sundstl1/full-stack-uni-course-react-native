@@ -5,7 +5,6 @@ import useRepositories from "../hooks/useRepositories";
 import { useHistory } from "react-router-native";
 import { queryNodes } from "../utils/queryNodes";
 import { Button, Menu, Divider, Provider } from "react-native-paper";
-import { useApolloClient } from "@apollo/client";
 
 const styles = StyleSheet.create({
   separator: {
@@ -15,12 +14,18 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-export const RepositoryListContainer = ({ repositories, history }) => {
+export const RepositoryListContainer = ({
+  repositories,
+  history,
+  onEndReach,
+}) => {
   // Get the nodes from the edges array
   const parsedRepositories = queryNodes(repositories);
   return (
     <FlatList
       data={parsedRepositories}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item }) => {
         return <RepositoryItem item={item} history={history} />;
@@ -31,7 +36,6 @@ export const RepositoryListContainer = ({ repositories, history }) => {
 
 const RepositoryList = () => {
   const history = useHistory();
-  const apolloClient = useApolloClient();
   const latest = {
     orderBy: "CREATED_AT",
     orderDirection: "DESC",
@@ -57,6 +61,10 @@ const RepositoryList = () => {
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
+
+  const onEndReach = () => {
+    console.log("You have reached the end of the list");
+  };
 
   return (
     <>
@@ -101,6 +109,7 @@ const RepositoryList = () => {
         <RepositoryListContainer
           repositories={repositories}
           history={history}
+          onEndReach={onEndReach}
         />
       </Provider>
     </>

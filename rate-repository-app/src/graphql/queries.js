@@ -49,3 +49,24 @@ export const GET_SINGLE_REPOSITORY = gql`
     }
   }
 `;
+
+export const USER_REVIEWS = gql`
+  query Me {
+    me {
+      reviews {
+        edges {
+          node {
+            id
+            createdAt
+            user {
+              username
+            }
+            rating
+            text
+            repositoryId
+          }
+        }
+      }
+    }
+  }
+`;
