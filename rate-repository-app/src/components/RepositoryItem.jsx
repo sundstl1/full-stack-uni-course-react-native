@@ -1,7 +1,9 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Pressable } from "react-native";
 import theme from "../theme";
 import Text from "./Text";
 import NumberField from "./NumberField";
+import PressableButton from "./PressableButton";
+import { openURL } from "expo-linking";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,9 +30,10 @@ const styles = StyleSheet.create({
     flexGrow: 0,
     flexDirection: "row",
   },
+  formButton: theme.forms.formButton,
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, history, showLink }) => {
   const UserView = () => {
     return (
       <View
@@ -69,16 +72,41 @@ const RepositoryItem = ({ item }) => {
         backgroundColor: theme.colors.listObject,
       }}
     >
-      <UserView testID="repositoryItem" />
-      <View
-        testID="repositoryItem"
-        style={{ ...styles.container, flexDirection: "row" }}
+      <Pressable
+        onPress={() => {
+          history
+            ? history.push(`/repository/${item.id}`)
+            : console.log("disabled");
+        }}
       >
-        <NumberField number={item.stargazersCount} label="Stars" />
-        <NumberField number={item.forksCount} label="Forks" />
-        <NumberField number={item.reviewCount} label="Reviews" />
-        <NumberField number={item.ratingAverage} label="Rating" />
-      </View>
+        <UserView testID="repositoryItem" />
+        <View
+          testID="repositoryItem"
+          style={{ ...styles.container, flexDirection: "row" }}
+        >
+          <NumberField number={item.stargazersCount} label="Stars" />
+          <NumberField number={item.forksCount} label="Forks" />
+          <NumberField number={item.reviewCount} label="Reviews" />
+          <NumberField number={item.ratingAverage} label="Rating" />
+        </View>
+      </Pressable>
+      {showLink ? (
+        <View style={styles.buttonContainer}>
+          <PressableButton
+            label="Open in GitHub"
+            onSubmit={() => {
+              openURL(item.url);
+            }}
+            style={{
+              ...styles.formButton,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
+        </View>
+      ) : (
+        <></>
+      )}
     </View>
   );
 };
