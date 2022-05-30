@@ -1,10 +1,10 @@
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphql/queries";
 
-const useRepositories = ({ orderBy, orderDirection }) => {
-  const { data, error, loading, refetch } = useQuery(
+const useRepositories = () => {
+  const [getRepositories, { data, error, loading, refetch }] = useLazyQuery(
     GET_REPOSITORIES,
-    { variables: { orderBy, orderDirection } },
+
     {
       fetchPolicy: "cache-and-network",
       // Other options
@@ -16,12 +16,15 @@ const useRepositories = ({ orderBy, orderDirection }) => {
   //   console.log(data.repositories);
   // }
 
-  return {
-    repositories: data ? data.repositories : null,
-    error,
-    loading,
-    refetch,
-  };
+  return [
+    getRepositories,
+    {
+      repositories: data ? data.repositories : null,
+      error,
+      loading,
+      refetch,
+    },
+  ];
 };
 
 export default useRepositories;
