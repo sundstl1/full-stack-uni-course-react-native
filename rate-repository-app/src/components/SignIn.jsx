@@ -16,6 +16,18 @@ const validationSchema = yup.object().shape({
   password: yup.string().required("Password is required"),
 });
 
+export const SignInContainer = ({ onSubmit }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+    </Formik>
+  );
+};
+
 const SignIn = () => {
   const authStorage = useAuthStorage();
   const [signIn] = useSignIn();
@@ -27,7 +39,6 @@ const SignIn = () => {
     try {
       const { data } = await signIn({ username, password });
       if (data) {
-        //console.log(data.authenticate.accessToken);
         await authStorage.setAccessToken(data.authenticate.accessToken);
         apolloClient.resetStore();
         history.push("/");
@@ -36,16 +47,7 @@ const SignIn = () => {
       console.log(e);
     }
   };
-
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}
-    >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-    </Formik>
-  );
+  return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
