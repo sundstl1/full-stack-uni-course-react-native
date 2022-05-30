@@ -24,6 +24,10 @@ const AppBar = () => {
   const authStorage = useAuthStorage();
   const { data, error, loading } = useQuery(GET_ME, []);
 
+  if (error) {
+    console.log(error);
+  }
+
   const loggedIn = !loading && data.me;
 
   const toHome = () => {

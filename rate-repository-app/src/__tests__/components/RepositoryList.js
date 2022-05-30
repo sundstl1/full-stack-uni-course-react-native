@@ -1,6 +1,5 @@
 import { RepositoryListContainer } from "../../components/RepositoryList";
 import { render } from "@testing-library/react-native";
-import { within } from "@testing-library/dom";
 
 describe("RepositoryList", () => {
   describe("RepositoryListContainer", () => {
@@ -47,7 +46,7 @@ describe("RepositoryList", () => {
           },
         ],
       };
-      const { getByText, getAllByText, debug } = render(
+      const { getByText, getAllByText } = render(
         <RepositoryListContainer repositories={repositories} />
       );
       //debug();

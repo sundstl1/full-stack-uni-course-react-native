@@ -15,6 +15,7 @@ const theme = {
     body: 14,
     subheading: 16,
     KPI: 20,
+    rating: 30,
   },
   fonts: {
     main: Platform.select({

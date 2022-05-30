@@ -2,7 +2,7 @@ import { FlatList, View, StyleSheet } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
 import { useHistory } from "react-router-native";
-import { repositoryNodes } from "../utils/repositoryNodes";
+import { queryNodes } from "../utils/queryNodes";
 
 const styles = StyleSheet.create({
   separator: {
@@ -14,7 +14,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 export const RepositoryListContainer = ({ repositories, history }) => {
   // Get the nodes from the edges array
-  const parsedRepositories = repositoryNodes(repositories);
+  const parsedRepositories = queryNodes(repositories);
   return (
     <FlatList
       data={parsedRepositories}
@@ -28,6 +28,7 @@ export const RepositoryListContainer = ({ repositories, history }) => {
 
 const RepositoryList = () => {
   const history = useHistory();
+
   const { repositories } = useRepositories();
 
   return (

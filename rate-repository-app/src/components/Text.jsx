@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   fontSizeKPI: {
     fontSize: theme.fontSizes.KPI,
   },
+  fontSizeRating: {
+    fontSize: theme.fontSizes.rating,
+  },
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
@@ -38,6 +41,7 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     color === "white" && "white",
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontSize === "kpi" && styles.fontSizeKPI,
+    fontSize === "rating" && styles.fontSizeRating,
     fontWeight === "bold" && styles.fontWeightBold,
     style,
   ];

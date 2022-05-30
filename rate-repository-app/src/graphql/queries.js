@@ -22,3 +22,27 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const GET_SINGLE_REPOSITORY = gql`
+  ${REPOSITORY_DETAILS}
+  query Repository($repositoryId: ID!) {
+    repository(id: $repositoryId) {
+      ...RepositoryDetails
+      url
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
+    }
+  }
+`;

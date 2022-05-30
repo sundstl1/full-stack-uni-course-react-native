@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item, history, showLink }) => {
+  if (!item) {
+    return <></>;
+  }
   const UserView = () => {
     return (
       <View
